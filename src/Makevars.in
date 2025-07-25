@@ -1,5 +1,3 @@
-TARGET = $(subst 64,x86_64,$(subst 32,i686,$(WIN)))-pc-windows-gnu
-
 TARGET_DIR = ./rcounter/target
 LIBDIR = $(TARGET_DIR)/$(TARGET)/@LIBDIR@
 STATLIB = $(LIBDIR)/librcounter.a
@@ -12,12 +10,10 @@ all: $(SHLIB) rust_clean
 $(SHLIB): $(STATLIB)
 
 CARGOTMP = $(CURDIR)/.cargo
-VENDOR_DIR = vendor
+VENDOR_DIR = $(CURDIR)/vendor
 
 $(STATLIB):
-	mkdir -p $(TARGET_DIR)/libgcc_mock
-	touch $(TARGET_DIR)/libgcc_mock/libgcc_eh.a
-
+	
 	if [ -f ./rcounter/vendor.tar.xz ]; then \
 		tar xf rcounter/vendor.tar.xz && \
 		mkdir -p $(CARGOTMP) && \
@@ -25,10 +21,12 @@ $(STATLIB):
 	fi
 
 	export CARGO_HOME=$(CARGOTMP) && \
+	export PATH="$(PATH):$(HOME)/.cargo/bin" && \
 	export LIBRARY_PATH="$(LIBRARY_PATH);$(CURDIR)/$(TARGET_DIR)/libgcc_mock" && \
-	RUSTFLAGS="$(RUSTFLAGS) --print=native-static-libs" cargo build @CRAN_FLAGS@ --target=$(TARGET) --lib @PROFILE@ --manifest-path=rcounter/Cargo.toml --target-dir=$(TARGET_DIR)
+	RUSTFLAGS="$(RUSTFLAGS) --print=native-static-libs" cargo build @CRAN_FLAGS@ --lib @PROFILE@ --manifest-path=./rcounter/Cargo.toml --target-dir $(TARGET_DIR) @TARGET@
 
-	rm -Rf $(CARGOTMP)
+	# Always clean up CARGOTMP
+	rm -Rf $(CARGOTMP);
 
 rust_clean: $(SHLIB)
 	rm -Rf $(CARGOTMP) $(VENDOR_DIR) @CLEAN_TARGET@
