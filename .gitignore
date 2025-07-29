@@ -6,6 +6,7 @@ src/rcounter/target/*
 
 inst/AUTHORS
 *.tar.gz
+*.tar.xz
 *.gz
 *.rds
 
