@@ -45,7 +45,7 @@ Once the `guidecounter_count` function is exposed to R, you can call it directly
 library(guideCounterWrapper)
 
 # Define the input parameters
-input  <- c("C:/Users/.../input.fq.gz")
+input  <- "C:/Users/.../input.fq.gz"
 offset_min_fraction <- 0.2
 lib = "lib.tsv"
 output  <- "output_folder/"
