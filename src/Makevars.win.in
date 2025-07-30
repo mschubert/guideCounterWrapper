@@ -18,14 +18,11 @@ $(STATLIB):
 	mkdir -p $(TARGET_DIR)/libgcc_mock
 	touch $(TARGET_DIR)/libgcc_mock/libgcc_eh.a
 
-	# Check if NOT_CRAN is false and unpack vendor if so
-	ifeq ($(NOT_CRAN),false)
-	if exist rcounter\\vendor.tar.xz (
-		powershell -Command "tar -xf rcounter/vendor.tar.xz"
-		mkdir "$(CARGOTMP)"
-		copy rcounter\\vendor-config.toml "$(CARGOTMP)\\config.toml"
-	)
-	endif
+	if [ -f ./rcounter/vendor.tar.xz ]; then \
+		tar xf rcounter/vendor.tar.xz && \
+		mkdir -p $(CARGOTMP) && \
+		cp rcounter/vendor-config.toml $(CARGOTMP)/config.toml; \
+	fi
 
 
 	export CARGO_HOME=$(CARGOTMP) && \
