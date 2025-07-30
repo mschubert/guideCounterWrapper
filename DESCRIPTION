@@ -3,8 +3,8 @@ Version: 0.0.1
 Date: 2025-07-16
 Title: R Package Wrapper Around the Command-Line Tool 'guide-counter', Developed by Fulcrum Genomics
 Authors@R: 
-    person("Moritz", "Broft", , "moritz.broft@gmail.com", role = c("aut", "cre") , comment = c(ORCID = "0009-0000-0144-9289"))
-Author: Moritz Broft [aut, cre] (ORCID: <https://orcid.org/0009-0000-0144-9289>)
+    person("Moritz", "Broft", email="moritz.broft@gmail.com",
+           role = c("aut", "cre"), comment = c(ORCID = "0009-0000-0144-9289"))
 Maintainer: Moritz Broft <moritz.broft@gmail.com>
 Description: Provides an R wrapper around the command-line tool 'guide-counter',
     developed by Fulcrum Genomics, for counting guide RNAs in sequencing reads based on
