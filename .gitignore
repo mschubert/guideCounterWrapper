@@ -3,6 +3,7 @@ src/*.so
 src/*.dll
 src/*.a
 src/rcounter/target/*
+src/rcounter/Cargo.lock
 
 inst/AUTHORS
 *.tar.gz
