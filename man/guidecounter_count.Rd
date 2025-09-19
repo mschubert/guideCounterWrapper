@@ -2,7 +2,7 @@
 % Please edit documentation in R/extendr-wrappers.R
 \name{guidecounter_count}
 \alias{guidecounter_count}
-\title{Call the \verb{guide-counter count} CLI from R}
+\title{Exposes the guidecounter_count functionality as a Rust function callable from R.}
 \usage{
 guidecounter_count(input, library, offset_min_fraction, output)
 }
@@ -11,24 +11,13 @@ guidecounter_count(input, library, offset_min_fraction, output)
 
 \item{library}{A string specifying the library name or path to use.}
 
-\item{offset_min_fraction}{A numeric value specifying the minimum offset threshold (as a fraction).}
+\item{offset_min_fraction}{A numeric value specifying the minimum offset threshold.}
 
-\item{output}{A string specifying the path to the output file.}
+\item{output}{A string specifying the output file path.}
 }
 \value{
-A character string message indicating success or an error.
+A character string indicating success or error message.
 }
 \description{
-This function provides access to the \verb{guide-counter count} command-line tool
-via a Rust-backed interface.
-}
-\examples{
-\dontrun{
-guidecounter_count(
-  input = c("reads_1.fastq", "reads_2.fastq"),
-  library = "my_library",
-  offset_min_fraction = 0.05,
-  output = tempfile(fileext = ".tsv")
-)
-}
+Exposes the guidecounter_count functionality as a Rust function callable from R.
 }

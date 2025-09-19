@@ -11,10 +11,10 @@ use std::process::{Command};
 /// @export
 #[extendr]
 fn guidecounter_count(
-    input: Vec<String>,             
-    library: String,                  
-    offset_min_fraction: f64,          
-    output: String                     
+    input: Vec<String>,
+    library: String,
+    offset_min_fraction: f64,
+    output: String
 ) -> String {
     let mut command = Command::new("guide-counter");
     command.arg("count");
