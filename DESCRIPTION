@@ -1,5 +1,5 @@
 Package: guideCounterWrapper
-Version: 0.0.1
+Version: 0.0.2
 Date: 2025-07-16
 Title: R Package Wrapper Around the Command-Line Tool 'guide-counter', Developed by Fulcrum Genomics
 Authors@R: 

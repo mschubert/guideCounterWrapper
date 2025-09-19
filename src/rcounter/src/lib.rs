@@ -14,7 +14,8 @@ fn guidecounter_count(
     input: Vec<String>,
     library: String,
     offset_min_fraction: f64,
-    output: String
+    output: String,
+    exact_match: bool
 ) -> String {
     let mut command = Command::new("guide-counter");
     command.arg("count");
@@ -26,6 +27,10 @@ fn guidecounter_count(
     command.arg("--offset-min-fraction").arg(offset_min_fraction.to_string())
             .arg("--library").arg(library)
             .arg("--output").arg(output);
+
+    if exact_match {
+        command.arg("--exact-match");
+    }
 
     match command.output() {
         Ok(output) => {

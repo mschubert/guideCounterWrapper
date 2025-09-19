@@ -4,7 +4,7 @@
 \alias{guidecounter_count}
 \title{Exposes the guidecounter_count functionality as a Rust function callable from R.}
 \usage{
-guidecounter_count(input, library, offset_min_fraction, output)
+guidecounter_count(input, library, offset_min_fraction, output, exact_match)
 }
 \arguments{
 \item{input}{A character vector of input file paths.}
